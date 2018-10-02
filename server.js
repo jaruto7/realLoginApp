@@ -26,7 +26,7 @@ passport.use( new GoogleStrategy({
         googleProfile = {
             id: profile.id,
             displayName: profile.displayName
-        }
+        };
         cb( null, profile );
     }
 ));
@@ -43,10 +43,10 @@ app.use( passport.session()) ;
 // Uzyj metody GET aby utworzyc endpoint i wyrenderowac plik z powitaniem
 app.get( '/', function( req, res ) {
     // Wyrenderuj plik index.pug i zapisz obiekt zadania uzytkownika w kluczu
-    res.render( 'index', { user: req.user} );
+    res.render( 'index', { user: req.user } );
 });
 
-// Uzytj metody GET aby dostac sie do endpointa i wyrenderuj plik pug
+// Uzyj metody GET aby dostac sie do endpointa i wyrenderuj plik pug
 app.get( '/logged', function( req, res ) {
     res.render( 'logged', { user: googleProfile } );
 });
